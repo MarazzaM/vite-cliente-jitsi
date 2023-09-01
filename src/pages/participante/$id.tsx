@@ -25,7 +25,7 @@ export default function Page() {
     return (
         <div className='w-screen h-screen'>
            <JitsiMeeting
-                domain = {'localhost:8080'}
+                domain = {urlJitsi}
                 roomName = {room}
                 configOverwrite = {{
                   startWithAudioMuted: true,
