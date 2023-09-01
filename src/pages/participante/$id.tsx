@@ -12,7 +12,7 @@ const BOTONES = [
     // 'fullscreen',
     // 'recording',
 ]
-const nombreHost = 'Moderador'
+const nombreHost = 'moderador'
 const room = import.meta.env.VITE_PUBLIC_ROOM_JITSI!; // Use non-null assertion
 
 
@@ -70,7 +70,7 @@ export default function Page() {
     
                   participantes.forEach(participante => {
                     // console.log(participante.displayName)
-                    if(participante.displayName === nombreHost && participante.participantId != 'local'){
+                    if(participante.displayName === nombreHost){
                       externalApi.pinParticipant(participante.participantId );
                       externalApi.executeCommand('grantModerator', participante.participantId);
                     }
