@@ -12,7 +12,7 @@ const BOTONES = [
     // 'fullscreen',
     // 'recording',
 ]
-const nombreHost = 'moderador'
+const nombreHost = 'Moderador'
 const room = import.meta.env.VITE_PUBLIC_ROOM_JITSI!; // Use non-null assertion
 
 
