@@ -19,7 +19,7 @@ function index() {
   return (
     <div className='w-screen h-screen'>
        <JitsiMeeting
-            domain = {'localhost:8080'}
+            domain = {urlJitsi}
             roomName = {room}
             configOverwrite = {{
               disableSelfView: true,
@@ -55,29 +55,29 @@ function index() {
               email: ''
             }}
 
-            onApiReady={(externalApi) => {
-              // Save the external API instance for further use, if needed
+            // onApiReady={(externalApi) => {
+            //   // Save the external API instance for further use, if needed
     
-              // Attach your custom event listeners or functions here
-              externalApi.on('participantJoined', function (abc) {
-                // console.log('Participant Joined:', abc);
-                // console.log( externalApi.getParticipantsInfo())
-                let participantes = externalApi.getParticipantsInfo();
+            //   // Attach your custom event listeners or functions here
+            //   externalApi.on('participantJoined', function (abc) {
+            //     // console.log('Participant Joined:', abc);
+            //     // console.log( externalApi.getParticipantsInfo())
+            //     let participantes = externalApi.getParticipantsInfo();
 
-                participantes.forEach(participante => {
-                   console.log(participante.displayName)
-                  if(participante.displayName === nombreHost && participante.participantId != 'local'){
-                    // externalApi.pinParticipant(participante.participantId );
+            //     participantes.forEach(participante => {
+            //        console.log(participante.displayName)
+            //       if(participante.displayName === nombreHost && participante.participantId != 'local'){
+            //         // externalApi.pinParticipant(participante.participantId );
 
-                    externalApi.executeCommand('grantModerator', participante.participantId);
+            //         externalApi.executeCommand('grantModerator', participante.participantId);
 
-                  }
-                });
-              });
+            //       }
+            //     });
+            //   });
     
-              // Call the function to fetch rooms info
-              // externalApi.getParticipantsInfo();
-            }}
+            //   // Call the function to fetch rooms info
+            //   // externalApi.getParticipantsInfo();
+            // }}
 
             getIFrameRef = { (iframeRef) => { iframeRef.style.height = 'inherit'; iframeRef.style.border = '0'; } }
           />
